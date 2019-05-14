@@ -138,7 +138,7 @@
        
        <script>
          var wsserver="192.168.10.13"; // 定义ws服务地址，你需要修改为自己服务器地址
-         var wsserverport="9180";      // 定义ws服务端口号，你需要修改为自己服务器端口号
+         var wsserverport="9280";      // 定义ws服务端口号，你需要修改为自己服务器端口号
          var ws = new WebSocket('ws://'+wsserver+':'+wsserverport+'/');
          ws.onopen = function() { // 连接建立后的效果设置
            document.body.style.backgroundColor = '#cfc';
@@ -160,7 +160,7 @@
 
    - 执行：
 
-   ​	服务器端执行`  ./websocketd --port=9280 ./date1.sh &` 
+   ​	服务器端执行`  ./websocketd --port=9280 ./date2.sh &` 
 
    ​	用3个不同的浏览器打开`html`文件`test2.html`即可看见不同效果。
 
