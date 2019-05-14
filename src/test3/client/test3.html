@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- filename:test1.html -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>websocketd显示服务器时间例子1</title>
+    <style>
+      #count {
+        font: bold 50px arial;
+        margin: auto;
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div id="count"></div>
+    
+    <script>
+      var wsserver="192.168.10.13"; // 定义ws服务地址，你需要修改为自己服务器地址
+      var wsserverport="9380";      // 定义ws服务端口号，你需要修改为自己服务器端口号
+      var ws = new WebSocket('ws://'+wsserver+':'+wsserverport+'/');
+      ws.onopen = function() { // 连接建立后的效果设置
+        document.body.style.backgroundColor = '#cfc';
+      };
+      ws.onclose = function() { // 连接关闭后（包括自身断开或者服务器断开）的效果设置
+        document.body.style.backgroundColor = null;
+      };
+      ws.onmessage = function(event) { // 获得数据的处理
+        document.getElementById('count').textContent = event.data;
+      };
+    </script>
+    
+  </body>
+</html>
